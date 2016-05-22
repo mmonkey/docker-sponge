@@ -1,0 +1,11 @@
+version: '2'
+services:
+    sponge_vanilla:
+        image: mmonkey/sponge-vanilla
+        container_name: vanilla
+        ports:
+            - "25565:25565"
+        stdin_open: true
+        tty: true
+        volumes:
+            - ./data:/vanilla:rw

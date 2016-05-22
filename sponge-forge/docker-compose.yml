@@ -1,0 +1,13 @@
+version: '2'
+services:
+    sponge_forge:
+        image: mmonkey/sponge-forge
+        container_name: forge
+        environment:
+            - "PORT:25566"
+        ports:
+            - "25566:25566"
+        stdin_open: true
+        tty: true
+        volumes:
+            - ./data:/forge:rw
