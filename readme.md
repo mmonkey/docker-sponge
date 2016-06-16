@@ -66,7 +66,7 @@ $ docker start vanilla
 
 ## Troubleshooting
 
-* When trying to run docker commands in a new bash window: `An error occurred trying to connect:`
+* When trying to run docker commands in a new bash window: `An error occurred trying to connect:`  
     ```
     $ eval "$(docker-machine env sponge)"
     ```
