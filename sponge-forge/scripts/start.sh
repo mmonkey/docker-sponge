@@ -2,9 +2,9 @@
 
 if [ ! -f "/forge/${EXECUTABLE_JAR}" ]; then
 	cd /forge
-	wget -O /forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar "${FORGE_URL}"
-	java -jar /forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar --installServer
-	rm -f /forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-installer.jar
+	wget -O /forge-${FORGE_VERSION}-installer.jar "${FORGE_URL}"
+	java -jar /forge-${FORGE_VERSION}-installer.jar --installServer
+	rm -f /forge-${FORGE_VERSION}-installer.jar
 fi
 
 if [ ! -f "/forge/server.properties" ]; then

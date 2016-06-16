@@ -4,7 +4,12 @@ services:
         image: mmonkey/sponge-forge
         container_name: forge
         environment:
-            - "PORT:25566"
+            - "MINECRAFT_EULA:true"
+            - "MINECRAFT_MAXHEAP:1024M"
+            - "FORGE_VERSION:1.8.9-11.15.1.1890-1.8.9"
+            - "SPONGE_VERSION:1.8.9-1890-4.2.0-BETA-1402"
+        expose:
+            - "25566"
         ports:
             - "25566:25566"
         stdin_open: true
