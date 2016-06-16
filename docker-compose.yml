@@ -10,7 +10,7 @@ services:
         volumes:
             - ./sponge-vanilla/data:/vanilla:rw
     sponge_forge:
-        build: mmonkey/sponge-forge
+        image: mmonkey/sponge-forge
         container_name: forge
         environment:
             - "PORT:25566"

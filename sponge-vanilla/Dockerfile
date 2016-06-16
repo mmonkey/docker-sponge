@@ -2,7 +2,7 @@ FROM java:8
 
 MAINTAINER CJ O'Hara (mmonkey)
 
-ENV SPONGE_VERSION 1.8.9-4.1.0-BETA-314
+ENV SPONGE_VERSION 1.8.9-4.2.0-BETA-337
 ENV SPONGE_URL https://repo.spongepowered.org/maven/org/spongepowered/spongevanilla/${SPONGE_VERSION}/spongevanilla-${SPONGE_VERSION}.jar
 
 ENV MINECRAFT_EULA true
