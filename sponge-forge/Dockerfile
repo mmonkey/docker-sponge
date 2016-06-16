@@ -12,7 +12,7 @@ ENV FORGE_URL http://files.minecraftforge.net/maven/net/minecraftforge/forge/${F
 ENV SPONGE_VERSION 1.8.9-1890-4.2.0-BETA-1402
 ENV SPONGE_URL http://files.minecraftforge.net/maven/org/spongepowered/spongeforge/${SPONGE_VERSION}/spongeforge-${SPONGE_VERSION}.jar
 
-ENV EXECUTABLE_JAR forge-${MINECRAFT_VERSION}-${FORGE_VERSION}-universal.jar
+ENV EXECUTABLE_JAR forge-${FORGE_VERSION}-universal.jar
 
 RUN DEBIAN_FRONTEND=noninteractive
 VOLUME ["/forge"]
