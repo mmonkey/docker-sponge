@@ -4,37 +4,48 @@
 
 1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
-3. Clone project
+3. Clone project  
     ```
-    git clone git@github.com:mmonkey/docker-sponge.git
-    cd docker-sponge/
+    $ git clone git@github.com:mmonkey/docker-sponge.git
+    $ cd docker-sponge/
     ```
-4. Create the docker machine
+4. Run the setup  
     ```
-    docker-machine create --driver virtualbox sponge
+    $ ./setup.sh
     ```
-5. Note the machine's ip address
+5. Note the machine's ip address  
     ```
-    docker-machine ip sponge
+    $ docker-machine ip sponge
     ```
-6. Connect to the Docker daemon
+6. Connect to the Docker daemon  
     ```
     eval "$(docker-machine env sponge)"
     ```
-8. Run docker-compose
+8. Run docker-compose  
     ```
     docker-compose up -d
     ```
     
-## Connecting to the running containers
-
-To connect forge do the following:
+## Attaching to the running containers:
 
 **Windows:**
 ```
-winpty docker exec -it forge bash
+$ winpty docker attach forge
+```
+or
+```
+$ winpty docker attach vanilla
 ```
 **Mac/Linux:**
 ```
-docker exec -it forge bash
+$ docker attach forge
 ```
+or
+```
+$ docker attach vanilla
+```
+
+## Detaching from the running containers:
+
+Keystroke: `[CTRL]` + `[p]` then `[CTRL]` + `[q]`
+**NOTE**: If you `[CTRL]` + `[c]` while attached to the running container, the container will be stopped.
