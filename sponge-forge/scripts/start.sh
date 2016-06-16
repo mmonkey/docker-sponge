@@ -8,7 +8,7 @@ if [ ! -f "/forge/${EXECUTABLE_JAR}" ]; then
 fi
 
 if [ ! -f "/forge/server.properties" ]; then
-	echo "server-port=${PORT}" > /forge/server.properties
+	echo "server-port=${MINECRAFT_PORT}" > /forge/server.properties
 fi
 
 if [ -n "${MINECRAFT_EULA}" ]; then

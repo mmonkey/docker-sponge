@@ -2,6 +2,7 @@ FROM java:8
 
 MAINTAINER CJ O'Hara (mmonkey)
 
+ENV MINECRAFT_PORT 25567
 ENV MINECRAFT_EULA true
 ENV MINECRAFT_MAXHEAP 1024M
 
@@ -16,5 +17,5 @@ VOLUME ["/vanilla"]
 ADD ./scripts/start.sh /start_vanilla
 RUN chmod +x /start_vanilla
 
-EXPOSE 25567
+EXPOSE ${MINECRAFT_PORT}
 CMD ["/start_vanilla"]

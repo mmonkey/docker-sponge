@@ -4,6 +4,7 @@ services:
         image: mmonkey/sponge-vanilla
         container_name: vanilla
         environment:
+            - "MINECRAFT_PORT:25567"
             - "MINECRAFT_EULA:true"
             - "MINECRAFT_MAXHEAP:1024M"
             - "SPONGE_VERSION:1.8.9-4.2.0-BETA-337"

@@ -4,6 +4,10 @@ if [ ! -f "/vanilla/${EXECUTABLE_JAR}" ]; then
 	wget -O /vanilla/${EXECUTABLE_JAR} "${SPONGE_URL}"
 fi
 
+if [ ! -f "/vanilla/server.properties" ]; then
+	echo "server-port=${MINECRAFT_PORT}" > /vanilla/server.properties
+fi
+
 if [ -n "${MINECRAFT_EULA}" ]; then
 	echo "eula=${MINECRAFT_EULA}" > /vanilla/eula.txt
 fi

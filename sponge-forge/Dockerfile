@@ -2,6 +2,7 @@ FROM java:8
 
 MAINTAINER CJ O'Hara (mmonkey)
 
+ENV MINECRAFT_PORT 25566
 ENV MINECRAFT_EULA true
 ENV MINECRAFT_MAXHEAP 1024M
 
@@ -19,5 +20,5 @@ VOLUME ["/forge"]
 ADD ./scripts/start.sh /start_forge
 RUN chmod +x /start_forge
 
-EXPOSE 25566
+EXPOSE ${MINECRAFT_PORT}
 CMD ["/start_forge"]
