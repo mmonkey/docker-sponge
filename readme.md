@@ -123,6 +123,11 @@ $ docker run -itd -p 25567:25567 \
 6. Add the rules that apply:
     * Name: Forge, Protocol: TCP, Host Port: 25566, Guest Port: 25566 (Leave Host IP and Guest IP empty)
     * Name: Vanilla, Protocol: TCP, Host Port: 25567, Guest Port: 25567 (Leave Host IP and Guest IP empty)
+7. Restart docker-machine:  
+    ```
+    $ docker-machine stop sponge
+    $ docker-machine start sponge
+    ```
 
 ## Attaching to the running containers:
 
@@ -153,6 +158,26 @@ or
 ```
 $ docker stop vanilla
 $ docker start vanilla
+```
+
+## Starting, stopping and restarting the virtual machine
+
+* You will need to start the docker machine if the Host computer restarts or powers off
+* You may want to stop the docker machine to preserve the Host computers resources
+
+**Starting docker machine**  
+```
+$ docker-machine start sponge
+```
+
+**Stopping docker machine**  
+```
+$ docker-machine stop sponge
+```
+
+**Restarting docker machine**  
+```
+$ docker-machine restart sponge
 ```
 
 ## Troubleshooting
