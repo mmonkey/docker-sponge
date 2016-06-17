@@ -10,10 +10,10 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
 1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 3. Clone project  
-    ```  
-    $ git clone git@github.com:mmonkey/docker-sponge.git  
-    $ cd docker-sponge/
-    ```
+```  
+$ git clone git@github.com:mmonkey/docker-sponge.git  
+$ cd docker-sponge/
+```  
 4. Run the setup
     * Create both Sponge Forge and Sponge Vanilla:  
     ```
@@ -44,7 +44,7 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
     ```  
     $ docker stop forge  
     $ docker rm forge
-    ```
+    ```  
     and/or  
     ```  
     $ docker stop vanilla  
@@ -71,7 +71,7 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
 1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 3. Create a docker-machine and setup your environment  
-    ```
+    ```  
     $ docker-machine create --driver virtualbox sponge  
     $ eval "$(docker-machine env sponge)"
     ```
@@ -128,8 +128,8 @@ $ docker run -itd -p 25567:25567 \
     * Name: Forge, Protocol: TCP, Host Port: 25566, Guest Port: 25566 (Leave Host IP and Guest IP empty)
     * Name: Vanilla, Protocol: TCP, Host Port: 25567, Guest Port: 25567 (Leave Host IP and Guest IP empty)
 7. Restart docker-machine:  
-    ```
-    $ docker-machine stop sponge
+    ```  
+    $ docker-machine stop sponge  
     $ docker-machine start sponge
     ```
 
