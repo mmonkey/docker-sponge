@@ -10,21 +10,21 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
 1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 3. Clone project
-    ```bash
+    ```
     $ git clone git@github.com:mmonkey/docker-sponge.git  
     $ cd docker-sponge/
     ```  
 4. Run the setup
     * Create both Sponge Forge and Sponge Vanilla:  
-    ```bash
+    ```
     $ ./setup.sh
     ```
     * Create only Sponge Forge:  
-    ```bash
+    ```
     $ sponge-forge/setup.sh
     ```
     * Create only Sponge Vanilla:  
-    ```bash
+    ```
     $ sponge-vanilla/setup.sh
     ```
 5. Browse and update your Mincraft server files in the following locations:
@@ -41,27 +41,27 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
         * Memory
 2. You may add additional ports by adding to the `ports:` and `expose:` sections.
 3. If you already have a running container you can destroy it:  
-    ```bash
+    ```
     $ docker stop forge  
     $ docker rm forge
     ```  
     and/or  
-    ```bash
+    ```
     $ docker stop vanilla  
     $ docker rm vanilla
     ```
 4. Re-build your container:  
     * Both containers (from `docker-sponge/` directory):  
-    ```bash
+    ```
     $ docker-compose up -d
     ```
     * Only Sponge Forge:  
-    ```bash
+    ```
     $ cd docker-forge/  
     $ docker-compose up -d
     ```
     * Only Sponge Vanilla:  
-    ```bash
+    ```
     $ cd docker-vanilla/  
     $ docker-compose up -d
     ```
@@ -71,14 +71,14 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
 1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 3. Create a docker-machine and setup your environment  
-    ```bash
+    ```
     $ docker-machine create --driver virtualbox sponge  
     $ eval "$(docker-machine env sponge)"
     ```
 4. Create container(s):
     
 **Sponge Forge**
-```bash
+```
 $ docker run -itd -p 25566:25566 \
 -v /path/on/host:/forge \
 -e MINECRAFT_PORT=25566 \
@@ -90,7 +90,7 @@ $ docker run -itd -p 25566:25566 \
 ```
 
 **Sponge Vanilla**
-```bash
+```
 $ docker run -itd -p 25567:25567 \
 -v /path/on/host:/vanilla \
 -e MINECRAFT_PORT=25567 \
@@ -110,7 +110,7 @@ $ docker run -itd -p 25567:25567 \
 **Local Machine**
 
 1. Obtain the server's ip address  
-    ```bash
+    ```
     $ docker-machine ip sponge
     ```
 2. Ports (default)
@@ -128,7 +128,7 @@ $ docker run -itd -p 25567:25567 \
     * Name: Forge, Protocol: TCP, Host Port: 25566, Guest Port: 25566 (Leave Host IP and Guest IP empty)
     * Name: Vanilla, Protocol: TCP, Host Port: 25567, Guest Port: 25567 (Leave Host IP and Guest IP empty)
 7. Restart docker-machine:  
-    ```bash
+    ```
     $ docker-machine stop sponge  
     $ docker-machine start sponge
     ```
@@ -136,12 +136,12 @@ $ docker run -itd -p 25567:25567 \
 ## Attaching to the running containers:
 
 **Windows:**  
-```bash
+```
 $ winpty docker attach forge  
 $ winpty docker attach vanilla
 ```
 **Mac/Linux:**   
-```bash
+```
 $ docker attach forge  
 $ docker attach vanilla
 ```
@@ -154,12 +154,12 @@ Keystroke: `[CTRL]` + `[p]` then `[CTRL]` + `[q]`
 
 ## Starting and stopping the server
 
-```bash
+```
 $ docker stop forge  
 $ docker start forge
 ```  
 or  
-```bash
+```
 $ docker stop vanilla  
 $ docker start vanilla
 ```
@@ -170,23 +170,23 @@ $ docker start vanilla
 * You may want to stop the docker machine to preserve the Host computers resources
 
 **Starting docker machine**  
-```bash
+```
 $ docker-machine start sponge
 ```
 
 **Stopping docker machine**  
-```bash
+```
 $ docker-machine stop sponge
 ```
 
 **Restarting docker machine**  
-```bash
+```
 $ docker-machine restart sponge
 ```
 
 ## Troubleshooting
 
 * When trying to run docker commands in a new bash window: `An error occurred trying to connect:`  
-    ```bash
+    ```
     $ eval "$(docker-machine env sponge)"
     ```
