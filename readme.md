@@ -3,81 +3,117 @@
 Docker sponge is a Minecraft server environment for [Sponge](https://www.spongepowered.org/) / [Forge](http://files.minecraftforge.net/) servers.
 
 * Supports Sponge Vanilla and Sponge Forge
+
 * Not meant for production environments
 
 ## Quick Setup
 
 1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
+
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
-3. Clone project
+
+3. Clone project:
+
     ```
     $ git clone git@github.com:mmonkey/docker-sponge.git  
     $ cd docker-sponge/
     ```  
+    
 4. Run the setup
-    * Create both Sponge Forge and Sponge Vanilla:  
-    ```
-    $ ./setup.sh
-    ```
-    * Create only Sponge Forge:  
-    ```
-    $ sponge-forge/setup.sh
-    ```
-    * Create only Sponge Vanilla:  
-    ```
-    $ sponge-vanilla/setup.sh
-    ```
+
+    * Create both Sponge Forge and Sponge Vanilla:
+    
+        ```
+        $ ./setup.sh
+        ```
+        
+    * Create only Sponge Forge:
+    
+        ```
+        $ sponge-forge/setup.sh
+        ```
+        
+    * Create only Sponge Vanilla:
+    
+        ```
+        $ sponge-vanilla/setup.sh
+        ```
+    
 5. Browse and update your Mincraft server files in the following locations:
+
     * `docker-sponge/sponge-forge/data`
+
     * `docker-sponge/sponge-vanilla/data`
     
 ### Customizing Quick Setup
 
 1. Edit the `docker-compose.yml` in the root of the project.
+
     * You can update the following settings:
+    
         * Container Name
+        
         * Port(s)
+        
         * Sponge and Forge Versions
+        
         * Memory
+
 2. You may add additional ports by adding to the `ports:` and `expose:` sections.
-3. If you already have a running container you can destroy it:  
+
+3. If you already have a running container you can destroy it:
+
     ```
     $ docker stop forge  
     $ docker rm forge
-    ```  
+    ```
+    
     and/or  
+    
     ```
     $ docker stop vanilla  
     $ docker rm vanilla
     ```
+    
 4. Re-build your container:  
+
     * Both containers (from `docker-sponge/` directory):  
-    ```
-    $ docker-compose up -d
-    ```
+    
+        ```
+        $ docker-compose up -d
+        ```
+        
     * Only Sponge Forge:  
-    ```
-    $ cd docker-forge/  
-    $ docker-compose up -d
-    ```
+    
+        ```
+        $ cd docker-forge/  
+        $ docker-compose up -d
+        ```
+    
     * Only Sponge Vanilla:  
-    ```
-    $ cd docker-vanilla/  
-    $ docker-compose up -d
-    ```
+    
+        ```
+        $ cd docker-vanilla/  
+        $ docker-compose up -d
+        ```
 
 ## Manual Setup
 
 1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
+
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
-3. Create a docker-machine and setup your environment  
+
+3. Create a docker-machine and setup your environment:  
+
     ```
     $ docker-machine create --driver virtualbox sponge  
     $ eval "$(docker-machine env sponge)"
     ```
+    
 4. Create container(s):
     
 **Sponge Forge**
+
 ```
 $ docker run -itd -p 25566:25566 \
 -v /path/on/host:/forge \
@@ -90,6 +126,7 @@ $ docker run -itd -p 25566:25566 \
 ```
 
 **Sponge Vanilla**
+
 ```
 $ docker run -itd -p 25567:25567 \
 -v /path/on/host:/vanilla \
@@ -101,33 +138,49 @@ $ docker run -itd -p 25567:25567 \
 ```
 
 * Minecraft server files will be placed in the path you specified on this line `-v /path/on/host:/forge`
+
     * On Windows, the host path should start from `/c/Users/<path>`
+
     * On Mac, the host path should start from `/Users/<path>`
+
 * You may add additional ports by adding `-p XXXX:XXXX --expose XXXX` (change `XXXX` to the desired port number)
 
 ## Connecting to the server
 
 **Local Machine**
 
-1. Obtain the server's ip address  
+1. Obtain the server's ip address:  
+
     ```
     $ docker-machine ip sponge
     ```
+    
 2. Ports (default)
+
     * Forge: xxx.xxx.xx.xx:**25566**
+
     * Vanilla: xxx.xxx.xx.xx:**25567**
     
 **Network**
 
 1. Open Oracle VM VirtualBox Manager
+
 2. Select the VM used by Docker (sponge)
+
 3. Click Settings -> Network
+
 4. Make sure Adapter 1 is set to "NAT"
+
 5. Click Advanced -> Port Forwarding
+
 6. Add the rules that apply:
+
     * Name: Forge, Protocol: TCP, Host Port: 25566, Guest Port: 25566 (Leave Host IP and Guest IP empty)
+
     * Name: Vanilla, Protocol: TCP, Host Port: 25567, Guest Port: 25567 (Leave Host IP and Guest IP empty)
+
 7. Restart docker-machine:  
+
     ```
     $ docker-machine stop sponge  
     $ docker-machine start sponge
@@ -136,11 +189,13 @@ $ docker run -itd -p 25567:25567 \
 ## Attaching to the running containers:
 
 **Windows:**  
+
 ```
 $ winpty docker attach forge  
 $ winpty docker attach vanilla
 ```
 **Mac/Linux:**   
+
 ```
 $ docker attach forge  
 $ docker attach vanilla
@@ -158,7 +213,9 @@ Keystroke: `[CTRL]` + `[p]` then `[CTRL]` + `[q]`
 $ docker stop forge  
 $ docker start forge
 ```  
+
 or  
+
 ```
 $ docker stop vanilla  
 $ docker start vanilla
@@ -167,19 +224,23 @@ $ docker start vanilla
 ## Starting, stopping and restarting the virtual machine
 
 * You will need to start the docker machine if the Host computer restarts or powers off
+
 * You may want to stop the docker machine to preserve the Host computers resources
 
 **Starting docker machine**  
+
 ```
 $ docker-machine start sponge
 ```
 
 **Stopping docker machine**  
+
 ```
 $ docker-machine stop sponge
 ```
 
 **Restarting docker machine**  
+
 ```
 $ docker-machine restart sponge
 ```
@@ -187,6 +248,7 @@ $ docker-machine restart sponge
 ## Troubleshooting
 
 * When trying to run docker commands in a new bash window: `An error occurred trying to connect:`  
+    
     ```
     $ eval "$(docker-machine env sponge)"
     ```
