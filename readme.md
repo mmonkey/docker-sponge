@@ -10,8 +10,8 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
 1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 3. Clone project  
-    ```
-    $ git clone git@github.com:mmonkey/docker-sponge.git
+    ```  
+    $ git clone git@github.com:mmonkey/docker-sponge.git  
     $ cd docker-sponge/
     ```
 4. Run the setup
@@ -41,13 +41,13 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
         * Memory
 2. You may add additional ports by adding to the `ports:` and `expose:` sections.
 3. If you already have a running container you can destroy it:  
-    ```
-    $ docker stop forge
+    ```  
+    $ docker stop forge  
     $ docker rm forge
     ```
-    and/or
-    ```
-    $ docker stop vanilla
+    and/or  
+    ```  
+    $ docker stop vanilla  
     $ docker rm vanilla
     ```
 4. Re-build your container:  
@@ -57,12 +57,12 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
     ```
     * Only Sponge Forge:  
     ```
-    $ cd docker-forge/
+    $ cd docker-forge/  
     $ docker-compose up -d
     ```
     * Only Sponge Vanilla:  
     ```
-    $ cd docker-vanilla/
+    $ cd docker-vanilla/  
     $ docker-compose up -d
     ```
 
@@ -72,7 +72,7 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 3. Create a docker-machine and setup your environment  
     ```
-    $ docker-machine create --driver virtualbox sponge
+    $ docker-machine create --driver virtualbox sponge  
     $ eval "$(docker-machine env sponge)"
     ```
 4. Create container(s):
@@ -80,27 +80,29 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
 **Sponge Forge**
 ```
 $ docker run -itd -p 25566:25566 \
-    -v /path/on/host:/forge \
-    -e MINECRAFT_PORT=25566 \
-    -e MINECRAFT_EULA=true \
-    -e MINECRAFT_MAXHEAP=1024M \
-    -e FORGE_VERSION=1.8.9-11.15.1.1890-1.8.9 \
-    -e SPONGE_VERSION=1.8.9-1890-4.2.0-BETA-1446 \
-    --name forge mmonkey/sponge-forge
+-v /path/on/host:/forge \
+-e MINECRAFT_PORT=25566 \
+-e MINECRAFT_EULA=true \
+-e MINECRAFT_MAXHEAP=1024M \
+-e FORGE_VERSION=1.8.9-11.15.1.1890-1.8.9 \
+-e SPONGE_VERSION=1.8.9-1890-4.2.0-BETA-1446 \
+--name forge mmonkey/sponge-forge
 ```
 
 **Sponge Vanilla**
 ```
 $ docker run -itd -p 25567:25567 \
-    -v /path/on/host:/vanilla \
-    -e MINECRAFT_PORT=25567 \
-    -e MINECRAFT_MAXHEAP=1024M \
-    -e MINECRAFT_EULA=true \
-    -e SPONGE_VERSION=1.8.9-4.2.0-BETA-337 \
-    --name vanilla mmonkey/sponge-vanilla
+-v /path/on/host:/vanilla \
+-e MINECRAFT_PORT=25567 \
+-e MINECRAFT_MAXHEAP=1024M \
+-e MINECRAFT_EULA=true \
+-e SPONGE_VERSION=1.8.9-4.2.0-BETA-337 \
+--name vanilla mmonkey/sponge-vanilla
 ```
 
 * Minecraft server files will be placed in the path you specified on this line `-v /path/on/host:/forge`
+    * On Windows, the host path should start from `/c/Users/<path>`
+    * On Mac, the host path should start from `/Users/<path>`
 * You may add additional ports by adding `-p XXXX:XXXX --expose XXXX` (change `XXXX` to the desired port number)
 
 ## Connecting to the server
@@ -134,13 +136,13 @@ $ docker run -itd -p 25567:25567 \
 ## Attaching to the running containers:
 
 **Windows:**  
-```
-$ winpty docker attach forge
+```  
+$ winpty docker attach forge  
 $ winpty docker attach vanilla
 ```
-**Mac/Linux:**  
-```
-$ docker attach forge
+**Mac/Linux:**   
+```  
+$ docker attach forge  
 $ docker attach vanilla
 ```
 
@@ -152,13 +154,13 @@ Keystroke: `[CTRL]` + `[p]` then `[CTRL]` + `[q]`
 
 ## Starting and stopping the server
 
-```
-$ docker stop forge
+```  
+$ docker stop forge  
 $ docker start forge
-```
-or
-```
-$ docker stop vanilla
+```  
+or  
+```  
+$ docker stop vanilla  
 $ docker start vanilla
 ```
 
