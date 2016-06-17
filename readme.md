@@ -113,33 +113,31 @@ Docker sponge is a Minecraft server environment for [Sponge](https://www.spongep
 4. Create container(s):
     
     **Sponge Forge**
-    
-        ```
-        $ docker run -itd -p 25566:25566 \
-        -v /path/on/host:/forge \
-        -e MINECRAFT_PORT=25566 \
-        -e MINECRAFT_EULA=true \
-        -e MINECRAFT_MAXHEAP=1024M \
-        -e FORGE_VERSION=1.8.9-11.15.1.1890-1.8.9 \
-        -e SPONGE_VERSION=1.8.9-1890-4.2.0-BETA-1446 \
-        --name forge mmonkey/sponge-forge
-        ```
+    ```
+    $ docker run -itd -p 25566:25566 \
+    -v /path/on/host:/forge \
+    -e MINECRAFT_PORT=25566 \
+    -e MINECRAFT_EULA=true \
+    -e MINECRAFT_MAXHEAP=1024M \
+    -e FORGE_VERSION=1.8.9-11.15.1.1890-1.8.9 \
+    -e SPONGE_VERSION=1.8.9-1890-4.2.0-BETA-1446 \
+    --name forge mmonkey/sponge-forge
+    ```
     
     **Sponge Vanilla**
-    
-        ```
-        $ docker run -itd -p 25567:25567 \
-        -v /path/on/host:/vanilla \
-        -e MINECRAFT_PORT=25567 \
-        -e MINECRAFT_MAXHEAP=1024M \
-        -e MINECRAFT_EULA=true \
-        -e SPONGE_VERSION=1.8.9-4.2.0-BETA-337 \
-        --name vanilla mmonkey/sponge-vanilla
-        ```
+    ```
+    $ docker run -itd -p 25567:25567 \
+    -v /path/on/host:/vanilla \
+    -e MINECRAFT_PORT=25567 \
+    -e MINECRAFT_MAXHEAP=1024M \
+    -e MINECRAFT_EULA=true \
+    -e SPONGE_VERSION=1.8.9-4.2.0-BETA-337 \
+    --name vanilla mmonkey/sponge-vanilla
+    ```
 
 * Minecraft server files will be placed in the path you specified on this line `-v /path/on/host:/forge`
 
-    * On Windows, the host path should start from `/c/Users/<path>`
+    * On Windows, the host path should start from `//c/Users/<path>`
 
     * On Mac, the host path should start from `/Users/<path>`
 
