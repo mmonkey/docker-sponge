@@ -1,4 +1,7 @@
 #!/bin/bash
+export FORGE_URL="http://files.minecraftforge.net/maven/net/minecraftforge/forge/${FORGE_VERSION}/forge-${FORGE_VERSION}-installer.jar"
+export SPONGE_URL="http://files.minecraftforge.net/maven/org/spongepowered/spongeforge/${SPONGE_VERSION}/spongeforge-${SPONGE_VERSION}.jar"
+export EXECUTABLE_JAR="forge-${FORGE_VERSION}-universal.jar"
 
 if [ ! -f "/forge/${EXECUTABLE_JAR}" ]; then
 	cd /forge
